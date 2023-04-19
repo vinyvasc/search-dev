@@ -3,9 +3,10 @@
     <form>
         <div class="form-group">
             <h1>Serch D_ev</h1>
-            <input type="text" class="form-control" style="width: 400px;display: inline-block;">
+            <input type="text" [formControl]="usernameControl" class="form-control" style="width: 400px;display: inline-block;">
             <button type="button" class="btn btn-purple" 
                 style="display: inline-block;background-color: #8C19D2; color: white"
+                (click)="onSearch()"
             >
             search
             </button> 
