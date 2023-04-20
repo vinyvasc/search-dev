@@ -21,10 +21,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: AppComponent },
       { path: 'home', component: HomeComponent },
       { path: 'perfil', component: PerfilComponent},
-      //{ path: '', redirectTo: '/home', pathMatch: 'full'},
+      { path: '', redirectTo: '/home', pathMatch: 'full'},
     ])
   ],
   providers: [],

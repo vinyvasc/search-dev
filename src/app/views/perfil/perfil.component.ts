@@ -1,5 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { forkJoin } from 'rxjs';
+import { Perfil } from './perfil.interface';
+import { Repo } from './repo.interface';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-perfil',
@@ -8,11 +13,51 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PerfilComponent {
   username = '';
-  constructor(private route: ActivatedRoute) {}
+  perfil?: Perfil;
+  repos?: Repo[];
+  searchBoxControl = new FormControl();
+  notFound = false;
+  now = Date.now();
+  constructor(
+    private route: ActivatedRoute,
+    private httpClient: HttpClient
+  ) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe(item => {
-      if (item['username'] != '') this.username = item['username'];
+    this.username = item['username'];
+
+    const user = this.httpClient.get(`https://api.github.com/users/${this.username}`);
+    const repos = this.httpClient.get(`https://api.github.com/users/${this.username}/repos`);
+      if (this.username) {
+        forkJoin([user, repos]).subscribe(i => {
+          this.perfil = i[0] as Perfil;
+          const reposToSort = i[1] as Repo[];
+          this.repos = reposToSort.sort((a,b) => b.stargazers_count - a.stargazers_count);
+        });
+      }
+
   });
+  }
+
+  search() {
+    this.username = this.searchBoxControl.value;
+    
+    const user = this.httpClient.get(`https://api.github.com/users/${this.username}`);
+    const repos = this.httpClient.get(`https://api.github.com/users/${this.username}/repos`);
+    if (this.username) {
+      forkJoin([user, repos]).subscribe(i => {
+        this.perfil = i[0] as Perfil;
+        const reposToSort = i[1] as Repo[];
+        this.repos = reposToSort.sort((a,b) => b.stargazers_count - a.stargazers_count);
+      });
+    }
+  }
+
+  
+  lastUpdated(repo: Repo) {
+    if (!repo.updated_at) return
+    let days = Math.trunc((this.now - new Date(repo.updated_at).getTime()) / (1000 * 3600 * 24));
+    return `atualizado há ${days} dia${days > 1 ? 's' : ''}`; 
   }
 }
