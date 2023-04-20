@@ -15,8 +15,8 @@ ter o node.js 18 instalado
 
 3 - rodar npm install;
 
-4 - rodar 'ng serve' ou 'npm run start' para desenvolvimento e npm run prod ou 'ng build --target=production' para build de produção; 
+4 - rodar 'ng serve' ou 'npm run start' para desenvolvimento e 'npm run prod' ou 'ng build --target=production' para build de produção; 
 
 # Como usar
 
-Na tela inicial basta pesquisar por username. Você sera direcionado para a tela de perfil onde terá informações a respeito do perfil em si e também a lista dos repositórios daquele usuário.
+Na tela inicial, home, basta pesquisar por username. Você sera direcionado para a tela de perfil onde terá, além de informações a respeito do perfil em si, a lista dos repositórios daquele usuário. É possível fazer uma nova pesquisa nessa mesma tela ou retornar para a tela home e perquisar por um outro desenvolvedor.
