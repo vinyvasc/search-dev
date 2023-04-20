@@ -1,0 +1,25 @@
+h3 {
+    display: inline-block; margin-right: 100px;
+}
+
+input {
+    width: 590px;
+    display: inline-block;
+}
+
+input:focus {
+    border-color:  #8C19D2;
+    box-shadow: 0 0 0 0;
+}
+
+.avatar-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+}
