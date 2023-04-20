@@ -50,6 +50,7 @@ export class PerfilComponent {
         this.perfil = i[0] as Perfil;
         const reposToSort = i[1] as Repo[];
         this.repos = reposToSort.sort((a,b) => b.stargazers_count - a.stargazers_count);
+        console.log(this.repos)
       });
     }
   }
