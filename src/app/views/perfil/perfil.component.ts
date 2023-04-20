@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { Perfil } from './perfil.interface';
 import { Repo } from './repo.interface';
@@ -20,7 +20,8 @@ export class PerfilComponent {
   now = Date.now();
   constructor(
     private route: ActivatedRoute,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -66,5 +67,9 @@ export class PerfilComponent {
     if (this.perfil && !this.perfil.avatar_url) return 'assets/blank-profile-picture.png';
     else if(this.perfil && this.perfil.avatar_url) return this.perfil.avatar_url;
     else return null;
+  }
+
+  goToUrl(url: string | undefined) {
+    if (url) this.router.navigate([url]);
   }
 }

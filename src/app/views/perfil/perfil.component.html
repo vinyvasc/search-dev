@@ -29,6 +29,10 @@
             <p *ngIf="perfil?.email"><img src="assets/email.svg" class="icon" alt="">{{perfil?.email}}</p>
             <p *ngIf="perfil?.blog"><img src="assets/link.svg" class="icon" alt="">{{perfil?.blog}}</p>
             <p *ngIf="perfil?.twitter_username"><img src="assets/twitter.svg" class="icon" alt="">{{perfil?.twitter_username}}</p>
+
+            <a *ngIf="perfil?.blog" [href]="perfil?.blog">
+                <button  type="button" class="btn">contato</button>
+            </a>
         </div>
         <div class="col-md-9">
             <div class="repo-list" *ngFor="let repo of repos">
