@@ -1,0 +1,38 @@
+<div style="padding: 20px 150px 20px 150px;">
+    <div class="d-flex justify-content-left">
+    
+        <div class="form-group">
+            <h3 style="display: inline-block; margin-right: 100px;">Serach D_ev</h3>
+            <input 
+                type="text" 
+                [formControl]="searchBoxControl"
+                (keyup.enter)="search()"
+                class="form-control" 
+                style="width: 400px; display: inline-block;"
+            >
+        </div>
+    
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <p>{{perfil?.name}}</p>
+            <p>{{perfil?.bio}}</p>
+            <p>{{perfil?.followers}} seguidores</p>
+            <p>{{perfil?.following}} seguindo</p>
+            <p>trabalho</p>
+            <p>endereco</p>
+            <p>email</p>
+            <p>site</p>
+            <p>twitter</p>
+        </div>
+        <div class="col-md-9">
+            <div *ngFor="let repo of repos">
+                <p>{{repo.name}}</p>
+                <p>{{repo.description}}</p>
+                <p>stars: {{repo.stargazers_count}}</p>
+                <p>{{lastUpdated(repo)}}</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
