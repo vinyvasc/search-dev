@@ -1,0 +1,47 @@
+<div style="padding: 20px 150px 20px 150px;">
+    <div class="d-flex justify-content-left">
+    
+        <div class="form-group">
+
+            <h3><span style="color: #0069CA">Serch</span><span style="color: #8C19D2"> D_evs</span></h3>
+            <input 
+                type="search" 
+                placeholder=" Search"
+                [formControl]="searchBoxControl"
+                (keyup.enter)="search()"
+                class="form-control" 
+                style="width: 400px; display: inline-block;"
+            >
+        </div>
+    
+    </div>
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-md-3">
+            <div style="margin-bottom: 10px;">
+                <img *ngIf="perfil?.avatar_url" class="avatar-img" [src]="getProfileImage()" alt="profile image">
+                <span style="margin-left: 10px; font-size: 1.2em; font-weight: bold;">{{perfil?.login}}</span>     
+            </div>
+            <p>{{perfil?.bio}}</p>
+            <p *ngIf="perfil?.followers"><img src="assets/people.svg" class="icon" alt="">{{perfil?.followers}} seguidores</p>
+            <p *ngIf="perfil?.followers"><img src="assets/heart.svg" class="icon" alt="">{{perfil?.following}} seguindo</p>
+            <p *ngIf="perfil?.company"><img src="assets/building.svg" class="icon" alt="">{{perfil?.company}}</p>
+            <p *ngIf="perfil?.location"><img src="assets/location-pin.svg" class="icon" alt="">{{perfil?.location}}</p>
+            <p *ngIf="perfil?.email"><img src="assets/email.svg" class="icon" alt="">{{perfil?.email}}</p>
+            <p *ngIf="perfil?.blog"><img src="assets/link.svg" class="icon" alt="">{{perfil?.blog}}</p>
+            <p *ngIf="perfil?.twitter_username"><img src="assets/twitter.svg" class="icon" alt="">{{perfil?.twitter_username}}</p>
+
+            <a *ngIf="perfil?.blog" [href]="perfil?.blog">
+                <button  type="button" class="btn">contato</button>
+            </a>
+        </div>
+        <div class="col-md-9">
+            <div class="repo-list" *ngFor="let repo of repos">
+                <h5><a [href]="repo.html_url">{{repo.name}}</a></h5>
+                <p>{{repo.description}}</p>
+                <p style="display: inline-block;"><img src="assets/star.svg" class="icon" alt=""> {{repo.stargazers_count}}</p>
+                <div class="circle-divider"></div>
+                <p style="display: inline-block;">{{lastUpdated(repo)}}</p>
+            </div>            
+        </div>
+    </div>
+</div>
