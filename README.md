@@ -1,27 +1,22 @@
 # SearchDev
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+Este projeto se trata de um web app contruido com Angular para fazer buscas por desenvolvedores no git hub.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Requisitos
 
-## Code scaffolding
+ter o node.js 18 instalado
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Passo a passo para instalação
 
-## Build
+1 - instalar o angular/cli globalmente com o comando 'npm install -g @angular/cli'
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2 - clonar o repositorio;
 
-## Running unit tests
+3 - rodar npm install;
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4 - rodar 'ng serve' ou 'npm run start' para desenvolvimento e 'npm run prod' ou 'ng build --target=production' para build de produção; 
 
-## Running end-to-end tests
+# Como usar
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Na tela inicial, home, basta pesquisar por username. Você sera direcionado para a tela de perfil onde terá, além de informações a respeito do perfil em si, a lista dos repositórios daquele usuário. É possível fazer uma nova pesquisa nessa mesma tela ou retornar para a tela home e perquisar por um outro desenvolvedor.
