@@ -60,4 +60,10 @@ export class PerfilComponent {
     let days = Math.trunc((this.now - new Date(repo.updated_at).getTime()) / (1000 * 3600 * 24));
     return `atualizado há ${days} dia${days > 1 ? 's' : ''}`; 
   }
+
+  getProfileImage(): string | null {
+    if (this.perfil && !this.perfil.avatar_url) return 'assets/blank-profile-picture.png';
+    else if(this.perfil && this.perfil.avatar_url) return this.perfil.avatar_url;
+    else return null;
+  }
 }
