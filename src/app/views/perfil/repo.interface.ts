@@ -3,4 +3,5 @@ export interface Repo {
     description: string;
     stargazers_count: number;
     updated_at: Date;
+    html_url: string;
 }

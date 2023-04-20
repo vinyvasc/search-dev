@@ -29,10 +29,14 @@
             <p *ngIf="perfil?.email"><img src="assets/email.svg" class="icon" alt="">{{perfil?.email}}</p>
             <p *ngIf="perfil?.blog"><img src="assets/link.svg" class="icon" alt="">{{perfil?.blog}}</p>
             <p *ngIf="perfil?.twitter_username"><img src="assets/twitter.svg" class="icon" alt="">{{perfil?.twitter_username}}</p>
+
+            <a *ngIf="perfil?.blog" [href]="perfil?.blog">
+                <button  type="button" class="btn">contato</button>
+            </a>
         </div>
         <div class="col-md-9">
             <div class="repo-list" *ngFor="let repo of repos">
-                <h5>{{repo.name}}</h5>
+                <h5><a [href]="repo.html_url">{{repo.name}}</a></h5>
                 <p>{{repo.description}}</p>
                 <p style="display: inline-block;"><img src="assets/star.svg" class="icon" alt=""> {{repo.stargazers_count}}</p>
                 <div class="circle-divider"></div>
