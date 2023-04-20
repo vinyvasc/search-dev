@@ -44,3 +44,16 @@ div.repo-list {
     margin-bottom: 10px;
 }
 
+button {
+    width: 200px;
+    display: inline-block;
+    background-color: #8C19D2;
+    color: white;
+    margin-top: 20px;
+
+}
+
+button:hover {
+    background-color: #008080;
+    color: white;
+}
