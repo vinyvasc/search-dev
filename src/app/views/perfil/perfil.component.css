@@ -5,6 +5,7 @@ h3 {
 input {
     width: 590px;
     display: inline-block;
+
 }
 
 input:focus {
@@ -23,3 +24,18 @@ input:focus {
     height: 20px;
     margin-right: 3px;
 }
+
+div.circle-divider {
+    margin: 0 8px 0 8px;
+    width: 5px;
+    height: 5px;
+    display: inline-block;
+    background-color: black; 
+    border-radius: 100%;
+}
+
+div.repo-list {
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 10px;
+}
+
